@@ -56,7 +56,11 @@ Run npm install
 ```
 * Install Vue cli
 ```
-npm install -g @vue/cli OR yarn global add @vue/cli
+npm install -g @vue/cli 
+```
+  OR
+```
+yarn global add @vue/cli
 ```
 * Run Vue UI
 ```
