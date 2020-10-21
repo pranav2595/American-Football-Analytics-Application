@@ -1,9 +1,10 @@
 <template>
   <div class ="col-sm-3 col-sm-5" > <br>
     
-        <input type="file" ref="file" v-on:change="selectFile" variant="outline-info">
-     
+        <input type="file" ref="file" v-on:change="selectFile" variant="outline-info" multiple>
         <b-button class="btn btn-info" @click="upload">Upload</b-button>
+
+
               
   
     
