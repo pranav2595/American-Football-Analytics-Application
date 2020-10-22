@@ -6,10 +6,11 @@ from os.path import isfile
 from flask import Flask, request, redirect, url_for, flash, send_file, send_from_directory, abort, url_for, jsonify
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-
+from flask_dropzone import Dropzone
 from afaaRunner import afaaRunner
 
 app = Flask(__name__, static_folder='output_files')
+dropzone = Dropzone(app)
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -32,10 +33,13 @@ def validate_extension(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST', 'GET'])
 def upload_files():
+    print("request")
+    print(request.data)
     if request.method == 'POST':
         # logic to clean the folder
+        print("in post")
         clean_directory(os.path.join(app.config['UPLOAD_FOLDER']))
         clean_directory(os.path.join(app.config['DOWNLOAD_FOLDER']))
         # check if the request comes with the input file
@@ -43,7 +47,7 @@ def upload_files():
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
-
+        print(file)
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
@@ -52,11 +56,15 @@ def upload_files():
 
         # if file exists and is with right extension
         if file and validate_extension(file.filename):
+            print("in running analyzer")
             filename = secure_filename(file.filename)
+
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # call the driver function
-            ar = afaaRunner(os.path.join(app.config['UPLOAD_FOLDER'], file.filename), app.config['DOWNLOAD_FOLDER'])
-            response = jsonify({'message': 'files saved and runner function called'})
+            ar = afaaRunner(os.path.join(
+                app.config['UPLOAD_FOLDER'], file.filename), app.config['DOWNLOAD_FOLDER'])
+            response = jsonify(
+                {'message': 'files saved and runner function called'})
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response
 
@@ -65,7 +73,6 @@ def upload_files():
 
 # this method contains the code to clean up the files from the directory if there are any
 def clean_directory(directory):
-    print(directory)
     # get all the file names in files
     for file in listdir(directory):
         absolute_name = os.path.join(directory, file)
@@ -94,4 +101,4 @@ def get_match_summary():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)
