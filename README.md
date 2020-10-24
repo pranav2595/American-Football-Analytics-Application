@@ -67,7 +67,12 @@ yarn global add @vue/cli
 vue ui
  
 ```
-For detailed steps visit[here](https://www.telerik.com/blogs/creating-and-managing-vue-projects-with-vue-ui)
-3. Please go to backend/src directory for running the back end.
+For detailed steps for fronted visit[here](https://www.telerik.com/blogs/creating-and-managing-vue-projects-with-vue-ui)
+
+3. Please go from another terminal to backend/src directory for running the back end.
+```
+python app.py
+
+```
 
 <sup>1</sup> Data file refers to the files which are used by football coaches at NC State. The original source of the files is not known to us but it is believed that the source is widely popular amongst football coaches.
