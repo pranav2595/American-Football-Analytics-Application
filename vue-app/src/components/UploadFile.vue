@@ -22,9 +22,13 @@ export default {
     return {
       dropzoneOptions: {
         url: "http://localhost:5000/upload",
-        headers: { "Content-Type": "multipart/form-data" },
-        method: "post",
+        headers: { enctype: "multipart/form-data" },
+        method: "POST",
         acceptedFiles: ".csv",
+        renameFile: function (file) {
+          console.log(file.name);
+          return "file";
+        },
       },
     };
   },
@@ -33,7 +37,7 @@ export default {
       console.log(file.name);
       console.log("Success!");
       bus.$emit("upload-success");
-      console.log(response.data);
+      console.log(response);
     },
   },
 };

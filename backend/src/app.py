@@ -36,26 +36,30 @@ def validate_extension(filename):
 @app.route('/upload', methods=['POST', 'GET'])
 def upload_files():
     print("request")
-    print(request.data)
-    if request.method == 'POST':
+    print(request.files.get('file'))
+    if request.method == 'POST' or request.method == 'GET':
         # logic to clean the folder
         print("in post")
-        clean_directory(os.path.join(app.config['UPLOAD_FOLDER']))
-        clean_directory(os.path.join(app.config['DOWNLOAD_FOLDER']))
+        file = request.files['file']
+        print(file.filename)
         # check if the request comes with the input file
         if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+            response = jsonify(
+                {'message': 'file empty'})
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
+        # request.files[next(iter(request.files))]
+        #file = request.files[next(iter(request.files))]
         file = request.files['file']
-        print(file)
+        print(file.filename)
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-
+        print(validate_extension(file.filename))
         # if file exists and is with right extension
-        if file and validate_extension(file.filename):
+        if file:
             print("in running analyzer")
             filename = secure_filename(file.filename)
 
@@ -69,16 +73,6 @@ def upload_files():
             return response
 
     return "Returning after Post"
-
-
-# this method contains the code to clean up the files from the directory if there are any
-def clean_directory(directory):
-    # get all the file names in files
-    for file in listdir(directory):
-        absolute_name = os.path.join(directory, file)
-        if isfile(absolute_name) & (file.rsplit('.', 1)[1].lower() not in DO_NOT_DELETE_EXTENSIONS):
-            print("Clearing stale files"+file.rsplit('.', 1)[1].lower())
-            os.remove(absolute_name)
 
 
 @app.route('/analysis', methods=['GET'])
