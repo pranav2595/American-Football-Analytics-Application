@@ -69,7 +69,7 @@ vue ui
 ```
 For detailed steps for fronted visit[here](https://www.telerik.com/blogs/creating-and-managing-vue-projects-with-vue-ui)
 
-3. Please go from another terminal to backend/src directory for running the back end.
+3. Please go from another terminal to backend/src directory for running the back end. For deploying the backend using docker you can also follow the  instructions in the readme of backend and spin up containers for backend server.
 ```
 python app.py
 
