@@ -6,7 +6,7 @@
 
 # TouchDown, an Analytics application for American Football
 
-[![Watch the video](/logo/icon.png)](https://www.youtube.com/watch?v=GLtjMf34_LE&feature=youtu.be&ab_channel=AmitMandliya)
+[![Watch the video](/logo/icon.png)](https://youtu.be/5MLSkIzp31Q)
 
 ### Project Idea:
 
