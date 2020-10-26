@@ -1,4 +1,4 @@
-### Instructions to run:
+### Instructions to run (traditional way):
 Simply run the file as shown below:
 ```
 cd backend/src
@@ -6,6 +6,14 @@ cd backend/src
 ```
 python app.py
 ```
+### Instructions to run (Dockerized way):
+
+1. Install Docker.
+2. Navigate to backend/src of the project on terminal.
+3. Build a docker image using the DockerFile in the folder.Type command "docker build ."
+4. Spin up a container using the created docker image and bind the respective port for backend connectivity to container.
+    Command: docker run -p <hostport>:<container_port> <imageID>
+5. Start the front end application. It should automatically connect to the server and the container is now serving the application.
 
 ### Football Related Terms
 Tackle Factor (TF) – The  ratio of a player’s proportion of his team’s tackles compared to what is expected at his position. For example, middle linebackers in a 4-3 typically make 11.9% of their team's tackles. A MLB who made 12.6% of his team's tackles would have a TF of 11.9/12.6 = 1.06. TF is adjusted for a full 16-game season. 
