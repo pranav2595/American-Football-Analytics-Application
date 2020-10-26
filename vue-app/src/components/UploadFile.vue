@@ -1,13 +1,9 @@
 <template>
   <div class ="col-sm-3 col-sm-5" > <br>
     
-        <input type="file" ref="file" v-on:change="selectFile" variant="outline-info" multiple>
+        <input type="file" ref="file" v-on:change="selectFile" variant="outline-info">
         <b-button class="btn btn-info" @click="upload">Upload</b-button>
-
-
-              
-  
-    
+        
     <div class="alert alert-light" role="alert">{{ message }}</div>
   </div>
 </template>
@@ -29,6 +25,7 @@ export default {
   methods: {
     selectFile() {
       this.selectedFiles = this.$refs.file.files;
+      console.log(this.$refs.file.files)  
     },
     upload() {
       this.progress = 0;
