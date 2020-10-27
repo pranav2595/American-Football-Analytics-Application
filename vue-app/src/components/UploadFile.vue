@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import http from "@/http-common";
-import { bus } from "@/event-bus";
+import http from "../http-common";
+import { bus } from "../event-bus";
 
 export default {
   name: "FileUpload",
