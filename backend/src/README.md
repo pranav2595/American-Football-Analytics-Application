@@ -29,3 +29,15 @@ Interception Rate (Int%) – The proportion of passes attempted that result in i
 Fumble Rate (Fum%) – The proportion of carries that running back fumbles the ball. Yards per Rush (YPR) – Yards gained per rush attempt. 
 
 Deep Pass Percentage (Deep%) – The proportion of pass targets in which a receiver is greater than 15 yards beyond the line of scrimmage. 
+
+### Data Explanation
+pff_OFFPLAYERS:
+- NCUN, NCST are team names. (For NC State, it is NCST) 
+- D08 etc are player numbers
+- RF2 etc are player positions
+- a single row of this column represents the formation of the team
+
+pff_OFFPLAYERSRATINGS:
+- gives the rating for the player of the position for that particular formation
+- For example if "NCUN D08 (0.0)" is in this column, then player D08 performed "average," where as "NCUN D08 (-0.5)" indicates the player was not playing well, and "NCUN D08 (+0.5)" indicates the player was playing well. 
+- Note that there are only three numberic values, -0.5, 0.0, +0.5. 
