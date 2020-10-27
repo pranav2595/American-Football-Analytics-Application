@@ -10,7 +10,9 @@ from flask_dropzone import Dropzone
 from afaaRunner import afaaRunner
 
 app = Flask(__name__, static_folder='output_files')
+# init Dropzone for this app. 
 dropzone = Dropzone(app)
+
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -27,7 +29,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 CORS(app)
 
-
+# check for the right file type.
 def validate_extension(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

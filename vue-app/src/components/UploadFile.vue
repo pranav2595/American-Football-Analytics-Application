@@ -1,4 +1,5 @@
 <template>
+<!-- adding dropzone support to Upload File compononent -->
   <div class="col-sm-3 col-sm-5">
     <vue-dropzone
       ref="myVueDropzone"

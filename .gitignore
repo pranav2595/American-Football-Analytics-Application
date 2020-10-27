@@ -1,5 +1,4 @@
 **/.DS_Store
-/vue-app/node_modules
 /vue-app/package-lock.json
 /backend/env
 /env
