@@ -14,6 +14,7 @@ We value your contribution. To keep everyone on the same track for contribution,
 8. Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent.
 9. On opening a Pull Request, add team members(s) as reviwers.
 10. Make necessary changes as per code review before merging the Pull request into Master branch.
+11. Before merging the changes the code should be reviewed extensively by other developers.
 
 ## Branch Naming guideline
 1. Feature development branch should begin with  name as "feature" eg: feature-punt-kickoff-addition

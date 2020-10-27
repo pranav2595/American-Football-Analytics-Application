@@ -9,3 +9,8 @@ plays = play_separator.getDataframesByPlays("NCST", data)
 def test02():
   for k, v in plays.items():
     assert v is not None
+
+def test01():
+  for k, v in plays.items():
+    assert k is not None
+

@@ -6,7 +6,7 @@
 
 # TouchDown, an Analytics application for American Football
 
-[![Watch the video](/logo/icon.png)](https://www.youtube.com/watch?v=GLtjMf34_LE&feature=youtu.be&ab_channel=AmitMandliya)
+[![Watch the video](/logo/icon.png)](https://youtu.be/5MLSkIzp31Q)
 
 ### Project Idea:
 
@@ -67,7 +67,15 @@ yarn global add @vue/cli
 vue ui
  
 ```
-For detailed steps visit[here](https://www.telerik.com/blogs/creating-and-managing-vue-projects-with-vue-ui)
-3. Please go to backend/src directory for running the back end.
+For detailed steps for fronted visit[here](https://www.telerik.com/blogs/creating-and-managing-vue-projects-with-vue-ui)
+
+For running the frontend application in a container go through the README.md present inside vue-app.
+
+
+3. Please go from another terminal to backend/src directory for running the back end. For deploying the backend using docker you can also follow the  instructions in the readme of backend and spin up containers for backend server.
+```
+python app.py
+
+```
 
 <sup>1</sup> Data file refers to the files which are used by football coaches at NC State. The original source of the files is not known to us but it is believed that the source is widely popular amongst football coaches.
