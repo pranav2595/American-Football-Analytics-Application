@@ -6,7 +6,9 @@
                 <b-col cols="8">
                     <div v-b-scrollspy:scrollspy-nested >
                         <div>
-                            <b-card-img left :src="selectedImg.link" class="selected-img"></b-card-img>
+							<b-link :href="selectedImg.link" target="_blank">
+								<b-card-img left :src="selectedImg.link" class="selected-img"></b-card-img>
+							</b-link>
                         </div>
                     </div>
                 </b-col>
@@ -87,6 +89,6 @@ export default {
 .card {
     width: 100%;
     height: 100%;
-
+	margin-bottom: 80px;
 }
 </style>
