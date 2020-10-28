@@ -1,43 +1,36 @@
 <template>
   <div class="card">
     <div v-if="isPhotoAvailable">
-      <b-card border-variant="info" fluid>
-        <b-row>
-          <b-col cols="8">
-            <div v-b-scrollspy:scrollspy-nested>
-              <div>
-                <b-card-img
-                  left
-                  :src="selectedImg.link"
-                  class="selected-img"
-                ></b-card-img>
-              </div>
-            </div>
-          </b-col>
-          <b-col cols="4">
-            <b-navbar
-              id="scrollspy-nested"
-              class="flex-column"
-              style="position: absolute; height: 100%; overflow-y: auto"
-            >
-              <b-nav pills vertical>
-                <b-nav-item
-                  href="#item-1"
-                  v-for="photo in photos"
-                  :key="photo.id"
-                >
-                  <b-img
-                    thumbnail
-                    :src="photo.link"
-                    class="list-img"
-                    @click="changeImage(photo)"
-                  ></b-img>
-                </b-nav-item>
-              </b-nav>
-            </b-navbar>
-          </b-col>
-        </b-row>
-      </b-card>
+        <b-card  border-variant = "info" fluid>
+            <b-row>
+                <b-col cols="8">
+                    <div v-b-scrollspy:scrollspy-nested >
+                        <div>
+							<!-- Wrapping image with hyperlink so that user can easily open the full screen image in new tab -->
+							<!-- It will be especially beneficial when the selected image does not fit properly in display section -->
+							<b-link :href="selectedImg.link" target="_blank">
+								<b-card-img left :src="selectedImg.link" class="selected-img"></b-card-img>
+							</b-link>
+                        </div>
+                    </div>
+                </b-col>
+                <b-col cols="4">
+                    <b-navbar id="scrollspy-nested" class="flex-column" style="position:absolute; height:100%; overflow-y:auto">
+                        <b-nav pills vertical>
+                            <b-nav-item href="#item-1" v-for="photo in photos" :key="photo.id">
+                                <b-img 
+                                    thumbnail 
+                                    :src="photo.link" 
+                                    class="list-img"
+                                    @click="changeImage(photo)"
+                                   
+                                ></b-img>
+                            </b-nav-item>
+                        </b-nav>
+                    </b-navbar>
+                </b-col>
+            </b-row>
+        </b-card>
     </div>
   </div>
 </template>
@@ -96,7 +89,8 @@ export default {
   height: 400px;
 }
 .card {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
+	margin-bottom: 80px; /* This is added to resolve the overlap issue of footer with display image card */
 }
 </style>
