@@ -1,54 +1,45 @@
 <template>
-  <div class ="col-sm-3 col-sm-5" > <br>
-    
-        <input type="file" ref="file" v-on:change="selectFile" variant="outline-info">
-        <b-button class="btn btn-info" @click="upload">Upload</b-button>
-        
-    <div class="alert alert-light" role="alert">{{ message }}</div>
+  <!-- adding dropzone support to Upload File compononent -->
+  <div class="col-sm-3 col-sm-5">
+    <vue-dropzone
+      ref="myVueDropzone"
+      id="dropzone"
+      :options="dropzoneOptions"
+      v-on:vdropzone-success="uploadSuccess"
+    ></vue-dropzone>
   </div>
 </template>
 
 <script>
-import http from "../http-common";
-import { bus } from "../event-bus";
 
+import { bus } from "@/event-bus";
+import vue2Dropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.min.css";
 export default {
   name: "FileUpload",
-  data() {
+  components: {
+    vueDropzone: vue2Dropzone,
+  },
+  data: function () {
     return {
-      selectedFiles: undefined,
-      currentFile: undefined,
-      progress: 0,
-      message: "",
+      dropzoneOptions: {
+        url: "http://localhost:5000/upload",
+        headers: { enctype: "multipart/form-data" },
+        method: "POST",
+        acceptedFiles: ".csv",
+        renameFile: function (file) {
+          console.log(file.name);
+          return "file";
+        },
+      },
     };
   },
   methods: {
-    selectFile() {
-      this.selectedFiles = this.$refs.file.files;
-      console.log(this.$refs.file.files)  
-    },
-    upload() {
-      this.progress = 0;
-      this.currentFile = this.selectedFiles.item(0);
-      console.log(this.selectedFile);
-      let formData = new FormData();
-      formData.append("file", this.currentFile);
-      return http
-        .post("/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log("Success!");
-          bus.$emit("upload-success");
-          console.log(response.data);
-        })
-        .catch(() => {
-          this.progress = 0;
-          this.message = "Could not upload the file!";
-          this.currentFile = undefined;
-        });
+    uploadSuccess(file, response) {
+      console.log(file.name);
+      console.log("Success!");
+      bus.$emit("upload-success");
+      console.log(response);
     },
   },
 };

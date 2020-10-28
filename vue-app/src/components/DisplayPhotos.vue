@@ -1,5 +1,5 @@
 <template>
-  <div class ="card">
+  <div class="card">
     <div v-if="isPhotoAvailable">
         <b-card  border-variant = "info" fluid>
             <b-row>
@@ -33,7 +33,6 @@
         </b-card>
     </div>
   </div>
-
 </template>
 <script>
 import axios from "axios";
@@ -43,10 +42,10 @@ export default {
   name: "DisplayPhotos",
   data() {
     return {
-        photos: [],
-        slide: 0,
-        sliding: null,
-        selectedImg: null
+      photos: [],
+      slide: 0,
+      sliding: null,
+      selectedImg: null,
     };
   },
   computed: {
@@ -65,28 +64,29 @@ export default {
       axios
         .get("http://localhost:5000/analysis")
         .then((response) => {
-          this.photos = response.data
-          this.selectedImg = this.photos[0]
+          console.log("Got analysis photo");
+          console.log(response.data);
+          this.photos = response.data;
+          this.selectedImg = this.photos[0];
         })
         .catch(function (error) {
           console.log(error);
         });
     },
     changeImage(photo) {
-        this.selectedImg = photo
-    }
+      this.selectedImg = photo;
+    },
   },
 };
 </script>
 <style scoped>
 .list-img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .selected-img {
-    width: 100%;
-    height: 400px;
-    
+  width: 100%;
+  height: 400px;
 }
 .card {
     width: 100%;
