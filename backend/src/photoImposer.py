@@ -37,7 +37,7 @@ class photoImposer:
             message = ''
             for index, player in positional_group.iterrows():
                 message = message + str(player["PLAYER"]) + " " + str(player["COUNT"]) + " " + str(player["RATING"]) + '\n'
-            color = 'rgb(0, 0, 0)'
+            color = (237, 245, 7)
             draw.text((x, y), message, fill=color, font=font)
         
         imagename = './' + downloadPath + '/' + playType + '_ANALYSIS.png'
