@@ -29,6 +29,7 @@ Examples of unacceptable behavior include:
 
 * The use of sexualized language or imagery, and sexual attention or
   advances of any kind.
+* Any direct or indirect use of any racist reference. 
 * Trolling, insulting or derogatory comments, and personal or political attacks
 * Public or private harassment.
 * Publishing others' private information, such as a physical or email
