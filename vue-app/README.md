@@ -38,3 +38,7 @@ docker image ls
 ```
 docker run -p 127.0.0.1:8081:8080 <imageID>
 ```
+## Instructions to run tests
+1. Navigate to vue-app
+2. run "npm run test:unit" to run the tests
+3. run "npm run test:coverage" for coverage results
