@@ -36,7 +36,7 @@
 </template>
 <script>
 import axios from "axios";
-import { bus } from "@/event-bus";
+import { bus } from "../event-bus";
 
 export default {
   name: "DisplayPhotos",

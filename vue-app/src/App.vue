@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import UploadFile from "@/components/UploadFile";
-import DisplayPhotos from "@/components/DisplayPhotos";
+import UploadFile from "vue-app/src/components/UploadFile";
+import DisplayPhotos from "vue-app/src/components/DisplayPhotos";
 export default {
   name: "App",
   components: {
