@@ -7,4 +7,3 @@ install:
 script:
     - python -m pytest
     - ./vue-app/npm run test:unit
-    - python -m ./tests/test*
