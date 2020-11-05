@@ -1,11 +1,8 @@
-language: node_js
-
-before_install: 
-    - cd vue-app
-    
-cache:
-  directories:
-    - node_modules
-    
+language: python
+python: 
+    - "3.6"
+    - "3.7"
+install:
+  - pip install -r requirements.txt
 script:
-    - npm run test:unit
+  - python -m pytest
