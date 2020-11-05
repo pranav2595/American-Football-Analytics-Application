@@ -1,5 +1,5 @@
 language: node_js
 install:
-    - npm install
+    - cd vue-app && npm install
 script:
     - cd vue-app && npm run test:unit
