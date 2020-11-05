@@ -3,5 +3,9 @@ language: node_js
 before_install: 
     - cd vue-app
     
+cache:
+  directories:
+    - node_modules
+    
 script:
     - npm run test:unit
