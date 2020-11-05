@@ -1,6 +1,6 @@
 language: node_js
 before_install: 
-    - cd vue_app
+    - cd vue-app
 install:
     - npm install
 script:
