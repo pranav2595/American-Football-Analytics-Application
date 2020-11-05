@@ -6,4 +6,5 @@ install:
     - pip install -r requirements.txt
 script:
     - python -m pytest
-    - vue-app/npm run test:unit
+    - ./vue-app/npm run test:unit
+    - python -m ./tests/test*
